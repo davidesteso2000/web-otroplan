@@ -40,11 +40,50 @@
   z-index: 999;
   opacity: 0.5;
 }
+    .blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob-1 {
+  width: 550px;
+  height: 550px;
+  background: var(--orange);
+  top: -150px;
+  right: -150px;
+  opacity: 0.1;
+  animation: float 9s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 450px;
+  height: 450px;
+  background: var(--blue);
+  bottom: -120px;
+  left: -120px;
+  opacity: 0.1;
+  animation: float 11s ease-in-out infinite reverse;
+}
+
+.blob-3 {
+  width: 350px;
+  height: 350px;
+  background: var(--pink);
+  top: 55%;
+  left: 48%;
+  opacity: 0.08;
+  animation: float 13s ease-in-out infinite 2s;
+}
   </style>
 </head>
 
 <body>
-
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
 </body>
 
 </html>
