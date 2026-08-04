@@ -256,6 +256,61 @@
       animation: fadeUp 0.9s 0.45s ease both;
     }
 
+        /* ───────────────────────────── */
+    /* BOTONES */
+    /* ───────────────────────────── */
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      justify-content: center;
+      margin-top: 1rem;
+      animation: fadeUp 0.9s 0.55s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.82rem 1.9rem;
+      border-radius: 999px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+
+    .btn-nosotros {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .btn-viajes {
+      background: #F5A623;
+      color: #fff;
+    }
+
+    .btn-galeria {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    .btn-proximos {
+      background: #E8441A;
+      color: #fff;
+    }
+
   </style>
 
 </head>
@@ -276,10 +331,20 @@
       <span class="c-pink">Otra</span> <span class="c-light">historia.</span><br>
       <span class="c-blue">Otro</span> <span class="c-light">Plan.</span>
     </h1>
+    
     <p class="hero-sub">
       Comunidad de viajerxs
     </p>
+    
     <div class="hero-line"></div>
+
+    <div class="hero-buttons">
+      <a href="nosotros.html" class="btn btn-nosotros">Nosotros</a>
+      <a href="viajes2.html" class="btn btn-viajes">Viajes</a>
+      <a href="galeria.html" class="btn btn-galeria">Galería</a>
+      <a href="proximos.html" class="btn btn-proximos">Próximos viajes</a>
+    </div>
+
   </section>
 
   <!-- NAV -->
