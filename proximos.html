@@ -120,7 +120,21 @@
       }
     }
 
-        /* ───────────────────────────── */
+        @keyframes fadeUp {
+
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    /* ───────────────────────────── */
     /* NAV */
     /* ───────────────────────────── */
 
@@ -173,6 +187,66 @@
       fill: currentColor;
     }
 
+        /* ───────────────────────────── */
+    /* TITULO PRINCIPAL */
+    /* ───────────────────────────── */
+
+    .hero {
+
+      position: relative;
+      z-index: 1;
+
+      min-height: 50vh;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 2rem 4rem;
+    }
+
+
+    .hero-title {
+
+      font-family: 'Bebas Neue', sans-serif;
+
+      font-size: clamp(3rem, 9vw, 7.5rem);
+
+      line-height: 0.95;
+
+      letter-spacing: 0.03em;
+
+      max-width: 880px;
+
+      margin-top: 4.5rem;
+
+      animation: fadeUp 0.9s 0.18s ease both;
+    }
+
+
+    .c-yellow {
+      color: #F5A623;
+    }
+
+    .c-orange {
+      color: #E8441A;
+    }
+
+    .c-pink {
+      color: var(--pink);
+    }
+
+    .c-blue {
+      color: var(--blue);
+    }
+
+    .c-light {
+      color: var(--light);
+    }
+
   </style>
 </head>
 
@@ -183,6 +257,23 @@
   <div class="blob blob-3"></div>
   <!-- NAV -->
 
+    <!-- TITULO PRINCIPAL -->
+
+  <section class="hero">
+
+    <h1 class="hero-title">
+
+      <span class="c-yellow">Otro</span> <span class="c-light">destino.</span><br>
+
+      <span class="c-orange">Otra</span> <span class="c-light">gente.</span><br>
+
+      <span class="c-pink">Otra</span> <span class="c-light">historia.</span><br>
+
+      <span class="c-blue">Otro</span> <span class="c-light">Plan.</span>
+
+    </h1>
+
+  </section>
   <nav>
 
     <a href="index.html" class="nav-logo">
