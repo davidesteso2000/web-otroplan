@@ -10,80 +10,125 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
+    /* ───────────────────────────── */
+    /* RESET */
+    /* ───────────────────────────── */
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ───────────────────────────── */
+    /* VARIABLES */
+    /* ───────────────────────────── */
+
     :root {
-  --orange: #F5A623;
-  --red:    #E8441A;
-  --blue:   #4A90D9;
-  --pink:   #E0197D;
-  --dark:   #0D0D0D;
-  --light:  #F2F2F2;
-  --muted:  #777;
-}
-    html, body {
-  height: 100%;
-  background: var(--dark);
-  color: var(--light);
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-}
+      --orange: #F5A623;
+      --red: #E8441A;
+      --blue: #4A90D9;
+      --pink: #E0197D;
+      --dark: #0D0D0D;
+      --light: #F2F2F2;
+      --muted: #777;
+    }
+
+    /* ───────────────────────────── */
+    /* BASE */
+    /* ───────────────────────────── */
+
+    html,
+    body {
+      height: 100%;
+      background: var(--dark);
+      color: var(--light);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ───────────────────────────── */
+    /* TEXTURA */
+    /* ───────────────────────────── */
+
     body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.5;
-}
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+
+    /* ───────────────────────────── */
+    /* BLOBS */
+    /* ───────────────────────────── */
+
     .blob {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(130px);
-  pointer-events: none;
-  z-index: 0;
-}
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(130px);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-.blob-1 {
-  width: 550px;
-  height: 550px;
-  background: var(--orange);
-  top: -150px;
-  right: -150px;
-  opacity: 0.1;
-  animation: float 9s ease-in-out infinite;
-}
+    .blob-1 {
+      width: 550px;
+      height: 550px;
+      background: var(--orange);
+      top: -150px;
+      right: -150px;
+      opacity: 0.1;
+      animation: float 9s ease-in-out infinite;
+    }
 
-.blob-2 {
-  width: 450px;
-  height: 450px;
-  background: var(--blue);
-  bottom: -120px;
-  left: -120px;
-  opacity: 0.1;
-  animation: float 11s ease-in-out infinite reverse;
-}
+    .blob-2 {
+      width: 450px;
+      height: 450px;
+      background: var(--blue);
+      bottom: -120px;
+      left: -120px;
+      opacity: 0.1;
+      animation: float 11s ease-in-out infinite reverse;
+    }
 
-.blob-3 {
-  width: 350px;
-  height: 350px;
-  background: var(--pink);
-  top: 55%;
-  left: 48%;
-  opacity: 0.08;
-  animation: float 13s ease-in-out infinite 2s;
-}
+    .blob-3 {
+      width: 350px;
+      height: 350px;
+      background: var(--pink);
+      top: 55%;
+      left: 48%;
+      opacity: 0.08;
+      animation: float 13s ease-in-out infinite 2s;
+    }
+
+    /* ───────────────────────────── */
+    /* ANIMACIONES */
+    /* ───────────────────────────── */
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-28px) scale(1.04);
+      }
+    }
+
   </style>
 </head>
 
 <body>
-<div class="blob blob-1"></div>
-<div class="blob blob-2"></div>
-<div class="blob blob-3"></div>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
 </body>
 
 </html>
