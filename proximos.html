@@ -401,6 +401,7 @@ nav {
     .then(response => response.text())
     .then(data => {
       document.getElementById("nav").innerHTML = data;
+      document.querySelector('a[href="proximos.html"]').classList.add("active");
     });
 </script>
   
