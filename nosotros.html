@@ -203,7 +203,7 @@
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
 
-  
+  <div id="nav"></div>
 
   <main>
     <!-- HERO -->
@@ -243,6 +243,13 @@
   </main>
 
   <footer>© 2025 OTRO PLAN · Comunidad de viajerxs</footer>
-
+<script>
+  fetch("nav.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("nav").innerHTML = data;
+    });
+</script>
+  
 </body>
 </html>
