@@ -4,29 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OTRO PLAN — Comunidad de viajerxs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ───────────────────────────── */
+    /* RESET */
+    /* ───────────────────────────── */
+    
+    *, *::before, *::after {
+
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ───────────────────────────── */
+    /* VARIABLES */
+    /* ───────────────────────────── */
 
     :root {
-      --orange:  #F5A623;
-      --red:     #E8441A;
-      --blue:    #4A90D9;
-      --pink:    #E0197D;
-      --dark:    #0D0D0D;
-      --light:   #F2F2F2;
-      --muted:   #777;
+      --orange: #F5A623;
+      --red: #E8441A;
+      --blue: #4A90D9;
+      --pink: #E0197D;
+      --dark: #0D0D0D;
+      --light: #F2F2F2;
+      --muted: #777;
     }
 
-    html, body {
-      height: 100%;
-      background: var(--dark);
-      color: var(--light);
-      font-family: 'DM Sans', sans-serif;
-      overflow-x: hidden;
-    }
+    /* ───────────────────────────── */
+    /* BASE */
+    /* ───────────────────────────── */
 
-    /* noise texture */
+    html{
+  height:100%;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:var(--dark);
+  color:var(--light);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+    /* ───────────────────────────── */
+    /* TEXTURA */
+    /* ───────────────────────────── */
+
     body::after {
       content: '';
       position: fixed;
@@ -37,7 +65,10 @@
       opacity: 0.5;
     }
 
-    /* ── BLOBS ── */
+    /* ───────────────────────────── */
+    /* BLOBS */
+    /* ───────────────────────────── */
+
     .blob {
       position: fixed;
       border-radius: 50%;
@@ -45,36 +76,132 @@
       pointer-events: none;
       z-index: 0;
     }
-    .blob-1 { width: 550px; height: 550px; background: var(--orange); top: -150px; right: -150px; opacity: 0.1; animation: float 9s ease-in-out infinite; }
-    .blob-2 { width: 450px; height: 450px; background: var(--blue);   bottom: -120px; left: -120px; opacity: 0.1; animation: float 11s ease-in-out infinite reverse; }
-    .blob-3 { width: 350px; height: 350px; background: var(--pink);   top: 55%; left: 48%; opacity: 0.08; animation: float 13s ease-in-out infinite 2s; }
 
-    /* ── NAV ── */
+    .blob-1 {
+      width: 550px;
+      height: 550px;
+      background: var(--orange);
+      top: -150px;
+      right: -150px;
+      opacity: 0.1;
+      animation: float 9s ease-in-out infinite;
+    }
+
+    .blob-2 {
+      width: 450px;
+      height: 450px;
+      background: var(--blue);
+      bottom: -120px;
+      left: -120px;
+      opacity: 0.1;
+      animation: float 11s ease-in-out infinite reverse;
+    }
+
+    .blob-3 {
+      width: 350px;
+      height: 350px;
+      background: var(--pink);
+      top: 55%;
+      left: 48%;
+      opacity: 0.08;
+      animation: float 13s ease-in-out infinite 2s;
+    }
+
+    /* ───────────────────────────── */
+    /* ANIMACIONES */
+    /* ───────────────────────────── */
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-28px) scale(1.04);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ───────────────────────────── */
+    /* NAV */
+    /* ───────────────────────────── */
+
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 1.4rem 3.5rem;
-      background: linear-gradient(to bottom, rgba(13,13,13,0.92) 0%, transparent 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(13,13,13,0.92) 0%,
+        transparent 100%
+      );
     }
-    .nav-logo img { height: 36px; width: auto; display: block; }
-    .nav-social { display: flex; gap: 1.1rem; align-items: center; }
-    .nav-social a { color: var(--muted); text-decoration: none; transition: color 0.25s; display: flex; }
-    .nav-social a:hover { color: var(--light); }
-    .nav-social svg { width: 19px; height: 19px; fill: currentColor; }
 
-    /* ── HERO ── */
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-social {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .nav-social a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s;
+      display: flex;
+    }
+
+    .nav-social a:hover {
+      color: var(--light);
+    }
+
+    .nav-social svg {
+      width: 19px;
+      height: 19px;
+      fill: currentColor;
+    }
+
+    /* ───────────────────────────── */
+    /* TITULO PRINCIPAL */
+    /* ───────────────────────────── */
+
     .hero {
-      position: relative; z-index: 1;
+      position: relative;
+      z-index: 1;
       min-height: 50vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 2rem 4rem;
+      padding: 2.25rem 2rem 5rem;
+      flex: 1;
     }
 
-    
-
-    .hero-tagline {
+    .hero-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3rem, 9vw, 7.5rem);
       line-height: 0.95;
@@ -83,11 +210,26 @@
       margin-top: 4.5rem;
       animation: fadeUp 0.9s 0.18s ease both;
     }
-    .c-yellow { color: #F5A623; }
-    .c-orange { color: #E8441A; }
-    .c-pink   { color: var(--pink); }
-    .c-blue   { color: var(--blue); }
-    .c-light  { color: var(--light); }
+
+    .c-yellow {
+      color: #F5A623;
+    }
+    .c-orange {
+      color: #E8441A;
+    }
+    .c-pink {
+      color: var(--pink);
+    }
+    .c-blue {
+      color: var(--blue);
+    }
+    .c-light {
+      color: var(--light);
+    }
+
+    /* ───────────────────────────── */
+    /* SUBTITULO */
+    /* ───────────────────────────── */
 
     .hero-sub {
       margin-top: 1.6rem;
@@ -99,122 +241,154 @@
       animation: fadeUp 0.9s 0.32s ease both;
     }
 
-    /* divider line */
+    /* ───────────────────────────── */
+    /* LINEA DECORATIVA */
+    /* ───────────────────────────── */
+
     .hero-line {
-      width: 40px; height: 1px;
-      background: linear-gradient(to right, var(--orange), var(--pink));
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        var(--orange),
+        var(--pink)
+      );
+
       margin: 1rem auto 0;
       animation: fadeUp 0.9s 0.45s ease both;
     }
 
-    /* ── BUTTONS ── */
-    .hero-buttons {
-      display: flex; flex-wrap: wrap; gap: 0.9rem;
-      justify-content: center;
-      margin-top: 1rem;
-      animation: fadeUp 0.9s 0.55s ease both;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.45rem;
-      padding: 0.82rem 1.9rem;
-      border-radius: 999px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.82rem; font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none; cursor: pointer; border: none;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-    }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
-    .btn-nosotros { background: var(--blue);   color: #fff; }
-    .btn-viajes   { background: #F5A623;       color: #fff; }
-    .btn-galeria  { background: var(--pink);   color: #fff; }
-    .btn-proximos { background: #E8441A;       color: #fff; }
+   /* ───────────────────────────── */
+    /* BOTONES */
+    /* ───────────────────────────── */
 
-    /* ── SCROLL HINT ── */
-    .scroll-hint {
-      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: #444; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-      animation: fadeUp 0.9s 0.9s ease both;
-      z-index: -1;
-    }
-    .scroll-line {
-      width: 1px; height: 44px;
-      background: linear-gradient(to bottom, #444, transparent);
-      animation: pulse 2.2s ease-in-out infinite;
+    .hero-buttons{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:0.9rem;
+      margin-top:1rem;
+      animation:fadeUp .9s .55s ease both;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      position: relative; z-index: 1;
-      text-align: center; padding: 1.8rem;
-      color: #333; font-size: 0.75rem; letter-spacing: 0.06em;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:260px;
+      gap:0.45rem;
+      padding:0.82rem 1.9rem;
+      border-radius:999px;
+      font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+      font-size:0.82rem;
+      font-weight:600;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      text-decoration:none;
+      cursor:pointer;
+      border:none;
+      transition:transform .2s, box-shadow .2s, opacity .2s;
     }
 
-    /* ── KEYFRAMES ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50%       { transform: translateY(-28px) scale(1.04); }
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50%       { opacity: 0.9; }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
     }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 700px) {
-      nav { padding: 1rem 1.5rem; }
-      .btn { width: 240px; justify-content: center; }
+    .btn-nosotros {
+      background: var(--blue);
+      color: #fff;
     }
+
+    .btn-viajes {
+      background: #F5A623;
+      color: #fff;
+    }
+
+    .btn-galeria {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    .btn-proximos {
+      background: #E8441A;
+      color: #fff;
+    }
+
   </style>
+
 </head>
+
 <body>
 
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
   <div class="blob blob-3"></div>
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-logo"></div>
-
-    <div class="nav-social">
-      <a href="https://www.instagram.com/otroplanviajes/" target="_blank" title="Instagram">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      </a>
-      <a href="https://www.tiktok.com/@otroplanviajes" target="_blank" title="TikTok">
-        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
-      </a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
+  <!-- TITULO PRINCIPAL -->
+  
   <section class="hero">
 
-    <h1 class="hero-tagline">
+    <h1 class="hero-title">
       <span class="c-yellow">Otro</span> <span class="c-light">destino.</span><br>
       <span class="c-orange">Otra</span> <span class="c-light">gente.</span><br>
       <span class="c-pink">Otra</span> <span class="c-light">historia.</span><br>
       <span class="c-blue">Otro</span> <span class="c-light">Plan.</span>
     </h1>
-
-    <p class="hero-sub">Comunidad de viajerxs</p>
+    
+    <p class="hero-sub">
+      Comunidad de viajerxs
+    </p>
+    
     <div class="hero-line"></div>
 
     <div class="hero-buttons">
       <a href="nosotros.html" class="btn btn-nosotros">Nosotros</a>
-      <a href="viajes2.html"   class="btn btn-viajes">Viajes</a>
-      <a href="galeria.html"  class="btn btn-galeria">Galería</a>
+      <a href="viajes2.html" class="btn btn-viajes">Viajes</a>
+      <a href="galeria.html" class="btn btn-galeria">Galería</a>
       <a href="proximos.html" class="btn btn-proximos">Próximos viajes</a>
     </div>
+
   </section>
 
-  <footer>© 2025 OTRO PLAN · Comunidad de viajerxs</footer>
+  <!-- NAV -->
 
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="OTRO PLAN">
+    </a>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/otroplanviajes/" target="_blank" title="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+
+      </a>
+
+      <a href="https://www.tiktok.com/@otroplanviajes" target="_blank" title="TikTok">
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+
+        </svg>
+
+      </a>
+
+    </div>
+
+  </nav>
+
+  <div id="footer"></div>
+
+  <script>
+    fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+  </script>
+  
 </body>
+
 </html>
