@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pruebas — OTRO PLAN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ───────────────────────────── */
+    /* RESET */
+    /* ───────────────────────────── */
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    /* ───────────────────────────── */
+    /* VARIABLES */
+    /* ───────────────────────────── */
+
+    :root {
+      --orange: #F5A623;
+      --red: #E8441A;
+      --blue: #4A90D9;
+      --pink: #E0197D;
+      --purple: #B39DDB;
+      --dark: #0D0D0D;
+      --light: #F2F2F2;
+      --muted: #777;
+    }
+
+
+    /* ───────────────────────────── */
+    /* BASE */
+    /* ───────────────────────────── */
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--dark);
+      color: var(--light);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+
+    /* ───────────────────────────── */
+    /* TEXTURA */
+    /* ───────────────────────────── */
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.5;
+    }
+
+
+    /* ───────────────────────────── */
+    /* BLOBS */
+    /* ───────────────────────────── */
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(130px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob-1 {
+      width: 550px;
+      height: 550px;
+      background: var(--orange);
+      top: -150px;
+      right: -150px;
+      opacity: 0.1;
+    }
+
+    .blob-2 {
+      width: 450px;
+      height: 450px;
+      background: var(--blue);
+      bottom: -120px;
+      left: -120px;
+      opacity: 0.1;
+    }
+
+    .blob-3 {
+      width: 350px;
+      height: 350px;
+      background: var(--pink);
+      top: 55%;
+      left: 48%;
+      opacity: 0.08;
+    }
+
+
+    /* ───────────────────────────── */
+    /* CONTENIDO DE PRUEBA */
+    /* ───────────────────────────── */
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-title span {
+      color: var(--purple);
+    }
+
+    .hero-sub {
+      margin-top: 1.6rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    .hero-line {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        var(--purple),
+        var(--pink)
+      );
+      margin: 1rem auto 0;
+    }
+
+    .test-text {
+      max-width: 600px;
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <!-- FONDO -->
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+
+  <!-- CONTENIDO -->
+
+  <section class="hero">
+
+    <h1 class="hero-title">
+      <span>PRUEBAS</span>
+    </h1>
+
+    <p class="hero-sub">
+      Banco de pruebas de OTRO PLAN
+    </p>
+
+    <div class="hero-line"></div>
+
+    <p class="test-text">
+      Esta página se utilizará para probar y diseñar el navegador
+      de la web antes de aplicarlo al resto de páginas.
+    </p>
+
+  </section>
+
+
+  <!-- NAV -->
+
+  <div id="nav"></div>
+
+
+  <!-- FOOTER -->
+
+  <div id="footer"></div>
+
+
+  <!-- CARGAR NAV -->
+
+  <script>
+    fetch("nav.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("nav").innerHTML = data;
+      });
+  </script>
+
+
+  <!-- CARGAR FOOTER -->
+
+  <script>
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+
+</html>
