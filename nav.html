@@ -70,6 +70,7 @@ nav {
   width: 24px;
   height: 20px;
   position: relative;
+  z-index: 1002;
 }
 
 .menu-toggle span {
@@ -80,16 +81,19 @@ nav {
   background: #777;
   transition: all 0.25s ease;
 }
-  
+
 .menu-toggle span:nth-child(1) {
   top: 0;
 }
+
 .menu-toggle span:nth-child(2) {
   top: 9px;
 }
+
 .menu-toggle span:nth-child(3) {
   top: 18px;
 }
+
 
 /* ───────────────────────────── */
 /* MENU MÓVIL ABIERTO */
@@ -97,6 +101,25 @@ nav {
 
 .mobile-menu {
   display: none;
+}
+
+
+/* ───────────────────────────── */
+/* BOTÓN X */
+/* ───────────────────────────── */
+
+.menu-toggle.open span:nth-child(1) {
+  top: 9px;
+  transform: rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-45deg);
 }
 
 /* ───────────────────────────── */
@@ -118,17 +141,26 @@ nav {
   }
 
   .mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(13,13,13,0.98);
-    padding: 6rem 2rem 2.5rem;
-    z-index: -1;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.8rem;
-  }
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+
+  background-color: #0D0D0D;
+
+  padding: 8rem 2rem 3rem;
+
+  z-index: 1000;
+
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2rem;
+
+  overflow-y: auto;
+}
 
   .mobile-menu.open {
     display: flex;
@@ -175,11 +207,11 @@ nav {
 
   <!-- BOTÓN MENÚ MÓVIL -->
 
-  <button class="menu-toggle" aria-label="Abrir menú">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+<button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
 </nav>
 
