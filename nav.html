@@ -159,7 +159,41 @@ nav {
 
   gap: 2rem;
 
-  overflow-y: auto;
+  overflow: hidden;
+}
+
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+
+  opacity: 0.5;
+
+  pointer-events: none;
+}
+
+.mobile-menu::after {
+  content: '';
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  background: #4A90D9;
+
+  border-radius: 50%;
+
+  filter: blur(130px);
+
+  top: -100px;
+  right: -150px;
+
+  opacity: 0.08;
+
+  pointer-events: none;
 }
 
   .mobile-menu.open {
