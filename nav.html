@@ -111,6 +111,7 @@ nav {
 .menu-toggle.open span:nth-child(1) {
   top: 9px;
   transform: rotate(45deg);
+  background: #777;
 }
 
 .menu-toggle.open span:nth-child(2) {
@@ -120,6 +121,7 @@ nav {
 .menu-toggle.open span:nth-child(3) {
   top: 9px;
   transform: rotate(-45deg);
+  background: #777;
 }
 
 /* ───────────────────────────── */
@@ -278,11 +280,17 @@ nav {
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 
-menuToggle.addEventListener("click", () => {
+menuToggle.onclick = function () {
 
-  menuToggle.classList.toggle("open");
+  const abierto = menuToggle.classList.toggle("open");
+
   mobileMenu.classList.toggle("open");
 
-});
+  menuToggle.setAttribute(
+    "aria-expanded",
+    abierto ? "true" : "false"
+  );
+
+};
 
 </script>
