@@ -174,24 +174,32 @@ nav {
   pointer-events: none;
 }
 
+/* ───────────────────────────── */
+/* BLOBS DEL FONDO */
+/* ───────────────────────────── */
+
 .mobile-menu::after {
   content: '';
 
   position: absolute;
+  inset: 0;
 
-  width: 500px;
-  height: 500px;
-
-  background: #4A90D9;
-
-  border-radius: 50%;
-
-  filter: blur(130px);
-
-  top: -100px;
-  right: -150px;
-
-  opacity: 0.08;
+  background:
+    radial-gradient(
+      circle 275px at 105% -5%,
+      rgba(245,166,35,0.10),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 225px at -5% 105%,
+      rgba(74,144,217,0.10),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle 175px at 50% 55%,
+      rgba(224,25,125,0.08),
+      transparent 70%
+    );
 
   pointer-events: none;
 }
