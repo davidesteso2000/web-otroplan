@@ -216,13 +216,49 @@
 
   <!-- CARGAR NAV -->
 
-  <script>
-    fetch("nav.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("nav").innerHTML = data;
+<script>
+
+  fetch("nav.html")
+    .then(response => response.text())
+    .then(data => {
+
+      document.getElementById("nav").innerHTML = data;
+
+      /* ───────────────────────────── */
+      /* PÁGINA ACTIVA */
+      /* ───────────────────────────── */
+
+      const currentPage = window.location.pathname.split("/").pop();
+
+      document.querySelectorAll(
+        '.nav-links a, .mobile-menu a'
+      ).forEach(link => {
+
+        const linkPage = link.getAttribute("href");
+
+        if (linkPage === currentPage) {
+          link.classList.add("active");
+        }
+
       });
-  </script>
+
+
+      /* ───────────────────────────── */
+      /* MENÚ MÓVIL */
+      /* ───────────────────────────── */
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+
+        mobileMenu.classList.toggle("open");
+
+      });
+
+    });
+
+</script>
 
 
   <!-- CARGAR FOOTER -->
