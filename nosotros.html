@@ -201,7 +201,7 @@
         <img src="foto-david.jpg" style="width:100%;height:320px;object-fit:cover;object-position:center 40%;display:block;" alt="David">
         <div class="card-body">
           <div class="card-name">David</div>
-          <div class="card-age">26 años</div>
+          <div class="card-age" id="edad-david"></div>
           <p class="card-desc">Agente de viajes con experiencia organizando y acompañando grupos. Sabe de primera mano lo que hace falta para que un viaje salga perfecto.</p>
         </div>
       </div>
@@ -209,7 +209,7 @@
         <img src="foto-claudia.jpg" style="width:100%;height:320px;object-fit:cover;object-position:center 60%;display:block;" alt="Claudia">
         <div class="card-body">
           <div class="card-name">Claudia</div>
-          <div class="card-age">25 años</div>
+          <div class="card-age" id="edad-claudia"></div>
           <p class="card-desc">Trabaja en el sector turístico de cara al público. Le sobra experiencia tratando con personas y sabe lo que la gente busca cuando viaja.</p>
         </div>
       </div>
@@ -266,6 +266,22 @@
 
       });
   </script>
+
+  <script>
+  function calcularEdad(fechaNacimiento) {
+    const hoy = new Date();
+    const nacimiento = new Date(fechaNacimiento);
+    let edad = hoy.getFullYear() - nacimiento.getFullYear();
+    const mes = hoy.getMonth() - nacimiento.getMonth();
+    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+      edad--;
+    }
+    return edad;
+  }
+
+  document.getElementById("edad-david").textContent = calcularEdad("1999-05-14") + " años";
+  document.getElementById("edad-claudia").textContent = calcularEdad("2000-08-22") + " años";
+</script>
 
 </body>
 </html>
