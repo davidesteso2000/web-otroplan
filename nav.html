@@ -361,11 +361,8 @@ const menuToggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
 
 menuToggle.onclick = function () {
-
   const abierto = menuToggle.classList.toggle("open");
-
   mobileMenu.classList.toggle("open");
-
   menuToggle.setAttribute(
     "aria-expanded",
     abierto ? "true" : "false"
@@ -373,20 +370,19 @@ menuToggle.onclick = function () {
 
 };
 
-  const submenuToggle = document.querySelector(".submenu-toggle");
-const submenuContent = document.querySelector(".submenu-content");
+  
 
-submenuToggle.addEventListener("click", () => {
+        const submenuToggle = document.querySelector(".submenu-toggle");
+        const submenuContent = document.querySelector(".submenu-content");
 
-  const abierto = submenuToggle.classList.toggle("open");
+        submenuToggle.onclick = function () {
+          const abierto = submenuToggle.classList.toggle("open");
+          submenuContent.classList.toggle("open");
+          submenuToggle.setAttribute("aria-expanded", abierto ? "true" : "false");
+        };
 
-  submenuContent.classList.toggle("open");
 
-  submenuToggle.setAttribute(
-    "aria-expanded",
-    abierto ? "true" : "false"
-  );
-
+    
 });
 
 </script>
