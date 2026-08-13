@@ -353,6 +353,8 @@ nav {
 
 <script>
 
+<script>
+
 /* ───────────────────────────── */
 /* MENÚ MÓVIL */
 /* ───────────────────────────── */
@@ -367,31 +369,23 @@ menuToggle.onclick = function () {
     "aria-expanded",
     abierto ? "true" : "false"
   );
-
 };
 
-        const submenuToggle = document.querySelector(".submenu-toggle");
-        const submenuContent = document.querySelector(".submenu-content");
-      
-        submenuToggle.addEventListener("click", () => {
-          const abierto = submenuToggle.classList.toggle("open");
-          submenuContent.classList.toggle("open");
-          submenuToggle.setAttribute(
-            "aria-expanded",
-            abierto ? "true" : "false"
-        );
 
-        const submenuToggle = document.querySelector(".submenu-toggle");
-        const submenuContent = document.querySelector(".submenu-content");
+/* ───────────────────────────── */
+/* DESPLEGABLE VIAJES */
+/* ───────────────────────────── */
 
-        submenuToggle.onclick = function () {
-          const abierto = submenuToggle.classList.toggle("open");
-          submenuContent.classList.toggle("open");
-          submenuToggle.setAttribute("aria-expanded", abierto ? "true" : "false");
-        };
+const submenuToggle = document.querySelector(".submenu-toggle");
+const submenuContent = document.querySelector(".submenu-content");
 
-
-    
-});
+submenuToggle.onclick = function () {
+  const abierto = submenuToggle.classList.toggle("open");
+  submenuContent.classList.toggle("open");
+  submenuToggle.setAttribute(
+    "aria-expanded",
+    abierto ? "true" : "false"
+  );
+};
 
 </script>
