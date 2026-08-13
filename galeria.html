@@ -135,77 +135,6 @@ body{
     }
 
     /* ───────────────────────────── */
-    /* NAV */
-    /* ───────────────────────────── */
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.4rem 3.5rem;
-  background: linear-gradient(
-    to bottom,
-    rgba(13,13,13,0.95) 0%,
-    transparent 100%
-  );
-}
-
-.nav-logo img {
-  height: 36px;
-  width: auto;
-  display: block;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  transition: color 0.25s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--light);
-}
-
-.nav-social {
-  display: flex;
-  gap: 1.1rem;
-  align-items: center;
-}
-
-.nav-social a {
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.25s;
-  display: flex;
-}
-
-.nav-social a:hover {
-  color: var(--light);
-}
-
-.nav-social svg {
-  width: 19px;
-  height: 19px;
-  fill: currentColor;
-}
-
-    /* ───────────────────────────── */
     /* TITULO PRINCIPAL */
     /* ───────────────────────────── */
 
@@ -401,8 +330,26 @@ nav {
   fetch("nav.html")
     .then(response => response.text())
     .then(data => {
+
       document.getElementById("nav").innerHTML = data;
-      document.querySelector('a[href="galeria.html"]').classList.add("active");
+
+      const currentPage = window.location.pathname.split("/").pop();
+
+      document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
+      });
+
+      const menuToggle = document.querySelector(".menu-toggle");
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      menuToggle.onclick = function () {
+        const abierto = menuToggle.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", abierto ? "true" : "false");
+      };
+
     });
 </script>
   
