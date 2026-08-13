@@ -118,12 +118,6 @@
     .card-5 .trip-name { color: var(--pink); }
     .card-6 .trip-name { color: var(--orange); }
 
-    footer {
-      position: relative; z-index: 1;
-      text-align: center; padding: 2rem;
-      color: #333; font-size: 0.75rem;
-    }
-
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50%       { transform: translateY(-24px); }
@@ -205,8 +199,8 @@
     </div>
   </main>
 
-<footer>© 2025 OTRO PLAN · Comunidad de viajerxs</footer>
-
+<div id="footer"></div>
+  
   <script>
     fetch("nav.html")
       .then(response => response.text())
@@ -231,6 +225,14 @@
           menuToggle.setAttribute("aria-expanded", abierto ? "true" : "false");
         };
 
+      });
+  </script>
+
+  <script>
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
       });
   </script>
 
