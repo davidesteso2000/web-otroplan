@@ -335,7 +335,7 @@ nav {
 <div class="submenu">
     <div class="submenu-row">
       <a href="viajes.html">Viajes</a>
-      <button class="submenu-toggle" aria-label="Desplegar viajes" aria-expanded="false">+</button>
+      <button class="submenu-toggle" aria-label="Desplegar viajes" aria-expanded="false" onclick="abrirSubmenu()">+</button>
     </div>
     <div class="submenu-content">
       <a href="#">Marruecos</a>
@@ -353,8 +353,6 @@ nav {
 
 <script>
 
-<script>
-
 /* ───────────────────────────── */
 /* MENÚ MÓVIL */
 /* ───────────────────────────── */
@@ -365,6 +363,7 @@ const mobileMenu = document.querySelector(".mobile-menu");
 menuToggle.onclick = function () {
   const abierto = menuToggle.classList.toggle("open");
   mobileMenu.classList.toggle("open");
+
   menuToggle.setAttribute(
     "aria-expanded",
     abierto ? "true" : "false"
@@ -376,16 +375,20 @@ menuToggle.onclick = function () {
 /* DESPLEGABLE VIAJES */
 /* ───────────────────────────── */
 
-const submenuToggle = document.querySelector(".submenu-toggle");
-const submenuContent = document.querySelector(".submenu-content");
+function abrirSubmenu() {
 
-submenuToggle.onclick = function () {
+  const submenuToggle = document.querySelector(".submenu-toggle");
+  const submenuContent = document.querySelector(".submenu-content");
+
   const abierto = submenuToggle.classList.toggle("open");
+
   submenuContent.classList.toggle("open");
+
   submenuToggle.setAttribute(
     "aria-expanded",
     abierto ? "true" : "false"
   );
-};
+
+}
 
 </script>
