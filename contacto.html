@@ -182,10 +182,6 @@
         <input type="text" id="nombre" name="nombre" required>
       </div>
       <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div>
         <label for="mensaje">Mensaje</label>
         <textarea id="mensaje" name="mensaje" required></textarea>
       </div>
@@ -219,17 +215,14 @@
       e.preventDefault();
 
       const nombre = document.getElementById("nombre").value;
-      const email = document.getElementById("email").value;
       const mensaje = document.getElementById("mensaje").value;
 
-      const asunto = encodeURIComponent("Contacto desde OTRO PLAN - " + nombre);
       const cuerpo = encodeURIComponent(
-        "Nombre: " + nombre + "\n" +
-        "Email: " + email + "\n\n" +
-        "Mensaje:\n" + mensaje
+        "Hola, soy " + nombre + ".\n\n" +
+        mensaje
       );
 
-      window.location.href = "mailto:viajes@otroplan.es?subject=" + asunto + "&body=" + cuerpo;
+      window.location.href = "mailto:viajes@otroplan.es?body=" + cuerpo;
     });
   </script>
 
