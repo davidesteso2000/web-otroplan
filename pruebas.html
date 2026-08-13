@@ -251,11 +251,11 @@
       const menuToggle = document.querySelector(".menu-toggle");
       const mobileMenu = document.querySelector(".mobile-menu");
 
-      menuToggle.addEventListener("click", () => {
-
+      menuToggle.onclick = function () {
+        const abierto = menuToggle.classList.toggle("open");
         mobileMenu.classList.toggle("open");
-
-      });
+        menuToggle.setAttribute("aria-expanded", abierto ? "true" : "false");
+      };
 
     });
 
