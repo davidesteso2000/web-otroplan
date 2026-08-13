@@ -370,7 +370,16 @@ menuToggle.onclick = function () {
 
 };
 
-  
+        const submenuToggle = document.querySelector(".submenu-toggle");
+        const submenuContent = document.querySelector(".submenu-content");
+      
+        submenuToggle.addEventListener("click", () => {
+          const abierto = submenuToggle.classList.toggle("open");
+          submenuContent.classList.toggle("open");
+          submenuToggle.setAttribute(
+            "aria-expanded",
+            abierto ? "true" : "false"
+        );
 
         const submenuToggle = document.querySelector(".submenu-toggle");
         const submenuContent = document.querySelector(".submenu-content");
