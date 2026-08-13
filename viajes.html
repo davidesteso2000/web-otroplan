@@ -234,6 +234,19 @@
           submenuToggle.setAttribute("aria-expanded", abierto ? "true" : "false");
         };
 
+        document.addEventListener("click", function (e) {
+
+          const clickDentroDelPanel = mobileMenu.contains(e.target);
+          const clickEnBoton = menuToggle.contains(e.target);
+
+          if (mobileMenu.classList.contains("open") && !clickDentroDelPanel && !clickEnBoton) {
+            menuToggle.classList.remove("open");
+            mobileMenu.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+          }
+
+        });
+
       });
   </script>
 
