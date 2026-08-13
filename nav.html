@@ -229,6 +229,73 @@ nav {
     color: #F2F2F2;
   }
 
+  /* ───────────────────────────── */
+  /* DESPLEGABLE VIAJES */
+  /* ───────────────────────────── */
+
+  .mobile-menu .submenu {
+    width: 100%;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .mobile-menu .submenu-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .mobile-menu .submenu-row a {
+    border-bottom: none;
+    padding-bottom: 0;
+    width: auto;
+  }
+
+  .submenu-toggle {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #777;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .submenu-toggle.open {
+    transform: rotate(45deg);
+    color: #F2F2F2;
+    border-color: rgba(255,255,255,0.45);
+  }
+
+  .submenu-content {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.9rem;
+    width: 100%;
+    transition: max-height 0.3s ease, margin-top 0.3s ease;
+  }
+
+  .submenu-content.open {
+    max-height: 300px;
+    margin-top: 1.2rem;
+  }
+
+  .submenu-content a {
+    font-size: 0.78rem;
+    color: #666;
+  }
+
 }
 
 </style>
@@ -271,8 +338,20 @@ nav {
 
   <a href="index.html">Inicio</a>
   <a href="nosotros.html">Nosotros</a>
-  <a href="viajes.html">Viajes</a>
-  <a href="galeria.html">Galería</a>
+<div class="submenu">
+    <div class="submenu-row">
+      <a href="viajes.html">Viajes</a>
+      <button class="submenu-toggle" aria-label="Desplegar viajes" aria-expanded="false">+</button>
+    </div>
+    <div class="submenu-content">
+      <a href="#">Marruecos</a>
+      <a href="#">Roma</a>
+      <a href="#">París</a>
+      <a href="#">Budapest</a>
+      <a href="#">Tenerife</a>
+      <a href="#">Londres</a>
+    </div>
+  </div>  <a href="galeria.html">Galería</a>
   <a href="proximos.html">Próximos viajes</a>
   <a href="pruebas.html">Contacto</a>
 
@@ -299,5 +378,21 @@ menuToggle.onclick = function () {
   );
 
 };
+
+  const submenuToggle = document.querySelector(".submenu-toggle");
+const submenuContent = document.querySelector(".submenu-content");
+
+submenuToggle.addEventListener("click", () => {
+
+  const abierto = submenuToggle.classList.toggle("open");
+
+  submenuContent.classList.toggle("open");
+
+  submenuToggle.setAttribute(
+    "aria-expanded",
+    abierto ? "true" : "false"
+  );
+
+});
 
 </script>
