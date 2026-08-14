@@ -33,6 +33,7 @@
       --pink: #E0197D;
       --purple: #B39DDB;
       --dark: #0D0D0D;
+      --dark2: #181818;
       --light: #F2F2F2;
       --muted: #777;
     }
@@ -119,7 +120,7 @@
     .hero {
       position: relative;
       z-index: 1;
-      min-height: 100vh;
+      min-height: 60vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -168,6 +169,192 @@
       font-weight: 300;
     }
 
+
+    /* ───────────────────────────── */
+    /* SEPARADOR DE BLOQUE */
+    /* ───────────────────────────── */
+
+    .bloque-separador {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .bloque-separador .linea {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .bloque-separador span {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .bloque {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .bloque-titulo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+
+    /* ESTADÍSTICAS */
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--orange);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+
+    /* TESTIMONIOS */
+
+    .testimonio {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .testimonio p {
+      color: #bbb;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    .testimonio-autor {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--pink);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+
+    /* FAQ */
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 1.2rem 0;
+    }
+
+    .faq-pregunta {
+      font-weight: 500;
+      font-size: 0.98rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-respuesta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+
+    /* NEWSLETTER */
+
+    .newsletter-box {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .newsletter-box input {
+      width: 100%;
+      max-width: 320px;
+      background: var(--dark);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      padding: 0.8rem 1.3rem;
+      color: var(--light);
+      font-family: 'DM Sans', sans-serif;
+      margin: 1.2rem auto 0;
+      display: block;
+    }
+
+    .newsletter-box button {
+      margin-top: 1rem;
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2.2rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+
+    /* TIMELINE */
+
+    .timeline-item {
+      display: flex;
+      gap: 1.2rem;
+      padding-bottom: 1.8rem;
+      position: relative;
+    }
+
+    .timeline-punto {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--pink);
+      margin-top: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .timeline-fecha {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-texto {
+      color: #bbb;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
   </style>
 
 </head>
@@ -202,6 +389,149 @@
       de la web antes de aplicarlo al resto de páginas.
     </p>
 
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- BLOQUE: ESTADÍSTICAS -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <div class="bloque-separador">
+    <span>Estadísticas</span>
+    <div class="linea"></div>
+  </div>
+
+  <section class="bloque">
+    <h2 class="bloque-titulo">EN NÚMEROS</h2>
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">6</div>
+        <div class="stat-label">Viajes</div>
+      </div>
+      <div>
+        <div class="stat-num">12</div>
+        <div class="stat-label">Países</div>
+      </div>
+      <div>
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Viajerxs</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- BLOQUE: TESTIMONIOS -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <div class="bloque-separador">
+    <span>Testimonios</span>
+    <div class="linea"></div>
+  </div>
+
+  <section class="bloque">
+    <h2 class="bloque-titulo">QUÉ DICEN DE NOSOTROS</h2>
+
+    <div class="testimonio">
+      <p>"El viaje a Marruecos fue una pasada, super bien organizado y con un grupo genial. Repetiría sin dudarlo."</p>
+      <div class="testimonio-autor">— Ejemplo de nombre</div>
+    </div>
+
+    <div class="testimonio">
+      <p>"Nunca había viajado sola y con OTRO PLAN me sentí super acompañada desde el primer día."</p>
+      <div class="testimonio-autor">— Ejemplo de nombre</div>
+    </div>
+
+    <div class="testimonio">
+      <p>"La organización, el itinerario, todo perfecto. Ya estoy esperando el próximo viaje."</p>
+      <div class="testimonio-autor">— Ejemplo de nombre</div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- BLOQUE: PREGUNTAS FRECUENTES -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <div class="bloque-separador">
+    <span>Preguntas frecuentes</span>
+    <div class="linea"></div>
+  </div>
+
+  <section class="bloque">
+    <h2 class="bloque-titulo">DUDAS COMUNES</h2>
+
+    <div class="faq-item">
+      <div class="faq-pregunta">¿Puedo viajar solo/a?</div>
+      <div class="faq-respuesta">Sí, la mayoría de gente que viaja con nosotros lo hace sola y acaba haciendo grupo enseguida.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-pregunta">¿Qué incluye el precio del viaje?</div>
+      <div class="faq-respuesta">Depende de cada viaje, pero normalmente alojamiento, actividades principales y organización. Los vuelos suelen ir aparte.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-pregunta">¿Cómo me apunto a un viaje?</div>
+      <div class="faq-respuesta">A través de la página de contacto, o escribiéndonos directamente por Instagram.</div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- BLOQUE: LÍNEA DE TIEMPO -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <div class="bloque-separador">
+    <span>Nuestra historia</span>
+    <div class="linea"></div>
+  </div>
+
+  <section class="bloque">
+    <h2 class="bloque-titulo">CÓMO EMPEZÓ TODO</h2>
+
+    <div class="timeline-item">
+      <div class="timeline-punto"></div>
+      <div>
+        <div class="timeline-fecha">2023</div>
+        <div class="timeline-texto">El primer viaje, a Marruecos, entre unos pocos amigos. Ahí nació la idea de OTRO PLAN.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-punto"></div>
+      <div>
+        <div class="timeline-fecha">2024</div>
+        <div class="timeline-texto">Roma y París se suman a la lista, y empieza a llegar gente nueva al grupo.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-punto"></div>
+      <div>
+        <div class="timeline-fecha">2025</div>
+        <div class="timeline-texto">Budapest, Tenerife y Londres. La comunidad crece y decidimos montar esta web.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- BLOQUE: NEWSLETTER -->
+  <!-- ═══════════════════════════════════════ -->
+
+  <div class="bloque-separador">
+    <span>Newsletter</span>
+    <div class="linea"></div>
+  </div>
+
+  <section class="bloque">
+    <div class="newsletter-box">
+      <h2 class="bloque-titulo" style="margin-bottom: 0.5rem;">NO TE PIERDAS NADA</h2>
+      <p class="test-text" style="margin-top: 0;">Entérate de los próximos viajes antes que nadie.</p>
+      <input type="email" placeholder="Tu email">
+      <button>Apuntarme</button>
+    </div>
   </section>
 
 
