@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marruecos — OTRO PLAN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #F5A623;
+      --red:    #E8441A;
+      --blue:   #4A90D9;
+      --pink:   #E0197D;
+      --dark:   #0D0D0D;
+      --dark2:  #181818;
+      --light:  #F2F2F2;
+      --muted:  #777;
+    }
+
+    html, body {
+      background: var(--dark);
+      color: var(--light);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    main {
+      position: relative; z-index: 1;
+      padding: 8rem 2rem 5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* CABECERA */
+    .volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      transition: color 0.25s;
+    }
+
+    .volver:hover {
+      color: var(--light);
+    }
+
+    .page-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      line-height: 0.95;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-date {
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      width: 50px; height: 2px;
+      background: linear-gradient(to right, var(--orange), var(--pink));
+      margin-bottom: 3rem;
+    }
+
+    /* INTRO */
+    .intro p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: #bbb;
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    /* SECCIONES */
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    /* ITINERARIO */
+    .dia {
+      display: flex;
+      gap: 1.2rem;
+      padding-bottom: 1.8rem;
+      position: relative;
+    }
+
+    .dia-numero {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      color: var(--orange);
+    }
+
+    .dia-titulo {
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .dia-texto {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* SITIOS (comida / actividades) */
+    .sitios-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sitio {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 1.3rem 1.5rem;
+    }
+
+    .sitio-nombre {
+      font-weight: 500;
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+      color: var(--light);
+    }
+
+    .sitio-desc {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* VOLVER AL FINAL */
+    .volver-final {
+      text-align: center;
+      margin-top: 4rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 3rem;
+    }
+
+    .volver-final a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2.5rem;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .volver-final a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav"></div>
